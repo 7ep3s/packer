@@ -161,7 +161,7 @@ build {
       "include:$true"
     ]
     update_limit = 25
-    restart_timeout = "60m"
+    //restart_timeout = "60m"
   }
 
   provisioner "windows-restart" {
