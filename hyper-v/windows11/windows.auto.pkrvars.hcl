@@ -1,9 +1,9 @@
 // VM hardware specs
-vm_name         = "GI-W11-001"
+vm_name         = "W11-packer"
 vm_cpus         = "2"
 vm_memory       = "4096"
 vm_disk_size    = "65536"
-switch_name     = "Default Switch"
+switch_name     = "VMSWITCH"
 dynamic_memory  = "true"
 secure_boot     = "true"
 tpm             = "true"
@@ -21,6 +21,6 @@ winrm_username  = "admin"
 winrm_password  = "password"
 
 // Removeable media
-win_iso         = "c:/iso/windows11-us-ent.iso"
+win_iso         = "c:/iso/Windows11.iso"
 // In Powershell use the "get-filehash" command to find the checksum of the ISO
-win_checksum    = "B4FB9A56E1A7B940B97664CE26E2B27E467A1E0F0058D8BE7781920D8E6A6FF5"
+win_checksum    = "68DBF275D7D84A1F5162355109026C48C02B20A9D5E1D59CDAA4EDB361C9CAEF"

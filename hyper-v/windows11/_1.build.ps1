@@ -16,7 +16,7 @@ $packer_config = "windows.json.pkr.hcl" #Packer config file
 $packer_variable = "windows.auto.pkrvars.hcl" # Packer variable file
 #$env:winrm_admin = "admin"
 #$env:winrm_password = "password"
-$github = "https://github.com/ibeerens/packer/archive/refs/heads/main.zip"
+$github = "https://github.com/7ep3s/packer/archive/refs/heads/main.zip"
 $product = "packer"
 $packer_uri = "https://developer.hashicorp.com/packer/downloads"
 
@@ -37,15 +37,7 @@ Expand-Archive ${downloadfolder}packer.zip -DestinationPath $downloadfolder -For
 Remove-Item -Path ${downloadfolder}packer.zip 
 
 # Download the latest version of Packer
-$packurl = Invoke-WebRequest -Uri $packer_uri| Select-Object -Expand links | Where-Object href -match "//releases\.hashicorp\.com/$product/\d.*/$product_.*_windows_amd64\.zip$" | Select-Object -Expand href
-$packdown = $packurl | Split-Path -Leaf
-$packdownload = $downloadfolder + $packdown
-Invoke-WebRequest $packurl -outfile $packdownload
-
-# Unzip Packer 
-Expand-Archive $packdownload -DestinationPath $win11_downloadfolder -Force
-# Remove the Packer ZIP file
-Remove-Item $packdownload
+winget install hashicorp.packer
 
 # Go to the Packer download folder
 Set-Location $win11_downloadfolder
