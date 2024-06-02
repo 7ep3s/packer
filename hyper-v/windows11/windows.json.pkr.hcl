@@ -169,7 +169,8 @@ build {
   provisioner "powershell" {
     elevated_user     = var.winrm_username
     elevated_password = var.winrm_password
-    inline = [ "Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe" ]
+    #inline = [ "Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe" ]
+    inline = [ "Add-AppPackage -path \"https://cdn.winget.microsoft.com/cache/source.msix\""]
   }
 
   provisioner "powershell" {
