@@ -138,7 +138,7 @@ source "hyperv-iso" "windows11" {
   cd_files         = ["./setup/*"]
   cd_label         = "scripts"
 }
-
+/*
 build {
   sources = ["source.hyperv-iso.windows11"]
 
@@ -153,7 +153,7 @@ build {
     ]
     restart_timeout = "120m"
   }
-
+*/
   provisioner "powershell" {
     elevated_user     = var.winrm_username
     elevated_password = var.winrm_password
