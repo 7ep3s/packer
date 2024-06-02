@@ -162,10 +162,10 @@ build {
       "Start-Sleep -Seconds 60"
     ]
   }
-  provisioner "windows-restart" {
-    restart_check_command = "echo restarted"
-    restart_timeout = "5m"
-  }
+  #provisioner "windows-restart" {
+  #  restart_check_command = "echo restarted"
+  #  restart_timeout = "5m"
+  #}
   provisioner "powershell" {
     inline = [ "Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe" ]
   }

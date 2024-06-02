@@ -4,6 +4,6 @@
 
 #& $winget_path\winget.exe install Valve.Steam --silent --accept-package-agreements --accept-source-agreements
 
-winget install Google.Chrome --silent --accept-package-agreements --accept-source-agreements --source winget
+winget install Google.Chrome --silent --accept-package-agreements --accept-source-agreements
 
-winget install Valve.Steam --silent --accept-package-agreements --accept-source-agreements --source winget
+winget install Valve.Steam --silent --accept-package-agreements --accept-source-agreements
