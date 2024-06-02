@@ -141,20 +141,20 @@ source "hyperv-iso" "windows11" {
 
 build {
   sources = ["source.hyperv-iso.windows11"]
-/*
-  provisioner "windows-update" {
-    pause_before    = "30s"
-    search_criteria = "IsInstalled=0"
-    filters = [
-      "exclude:$_.Title -like '*Defender*'",
-      "exclude:$_.Title -like '*VMware*'",
-      "exclude:$_.Title -like '*Preview*'",
-      "exclude:$_.InstallationBehavior.CanRequestUserInput",
-      "include:$true"
-    ]
-    restart_timeout = "120m"
-  }
-*/
+
+//  provisioner "windows-update" {
+//    pause_before    = "30s"
+//    search_criteria = "IsInstalled=0"
+//    filters = [
+//      "exclude:$_.Title -like '*Defender*'",
+//      "exclude:$_.Title -like '*VMware*'",
+//      "exclude:$_.Title -like '*Preview*'",
+//      "exclude:$_.InstallationBehavior.CanRequestUserInput",
+//      "include:$true"
+//    ]
+//    restart_timeout = "120m"
+//  }
+
   provisioner "powershell" {
     elevated_user     = var.winrm_username
     elevated_password = var.winrm_password
