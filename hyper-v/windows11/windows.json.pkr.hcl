@@ -138,10 +138,10 @@ source "hyperv-iso" "windows11" {
   cd_files         = ["./setup/*"]
   cd_label         = "scripts"
 }
-/*
+
 build {
   sources = ["source.hyperv-iso.windows11"]
-
+/*
   provisioner "windows-update" {
     pause_before    = "30s"
     search_criteria = "IsInstalled=0"
