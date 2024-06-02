@@ -18,7 +18,7 @@ packer {
     }
     wim = {
       version = ">= 0.5.1"
-      source = "github.com/marmold/packer-plugin-wim"
+      source = "github.com/marmold/wim"
     }
   }
 }
