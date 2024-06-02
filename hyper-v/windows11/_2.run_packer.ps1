@@ -5,17 +5,17 @@
 #>
 
 # Show Packer Version
-.\packer.exe -v
+packer -v
 
 # Download Packer plugins
-.\packer.exe init "${$win11_downloadfolder}${packer_config}"
+packer init "${$win11_downloadfolder}${packer_config}"
 
 # Packer Format configuration files (.pkr.hcl) and variable files (.pkrvars.hcl) are updated.
-.\packer.exe fmt -var-file="${$win11_downloadfolder}{$packer_variable}" "${$win11_downloadfolder}${packer_config}"
+packer fmt -var-file="${$win11_downloadfolder}{$packer_variable}" "${$win11_downloadfolder}${packer_config}"
 
 # Packer validate
-.\packer.exe validate .
+packer validate .
 
 # Packer build
-# .\packer.exe build -force -var-file="${$win11_downloadfolder}${packer_variable}" -var "winrm_username=$env:winrm_admin" -var "winrm_password=$env:winrm_password" "${$win11_downloadfolder}${packer_config}"
-.\packer.exe build -force -var-file="${$win11_downloadfolder}${packer_variable}" "${$win11_downloadfolder}${packer_config}"
+# packer build -force -var-file="${$win11_downloadfolder}${packer_variable}" -var "winrm_username=$env:winrm_admin" -var "winrm_password=$env:winrm_password" "${$win11_downloadfolder}${packer_config}"
+packer build -force -var-file="${$win11_downloadfolder}${packer_variable}" "${$win11_downloadfolder}${packer_config}"
