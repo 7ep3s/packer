@@ -167,6 +167,8 @@ build {
   #  restart_timeout = "5m"
   #}
   provisioner "powershell" {
+    elevated_user     = var.winrm_username
+    elevated_password = var.winrm_password
     inline = [ "Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe" ]
   }
 
