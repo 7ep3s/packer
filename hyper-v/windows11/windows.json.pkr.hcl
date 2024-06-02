@@ -141,20 +141,7 @@ source "hyperv-iso" "windows11" {
 
 build {
   sources = ["source.hyperv-iso.windows11"]
-
-//  provisioner "windows-update" {
-//    pause_before    = "30s"
-//    search_criteria = "IsInstalled=0"
-//    filters = [
-//      "exclude:$_.Title -like '*Defender*'",
-//      "exclude:$_.Title -like '*VMware*'",
-//      "exclude:$_.Title -like '*Preview*'",
-//      "exclude:$_.InstallationBehavior.CanRequestUserInput",
-//      "include:$true"
-//    ]
-//    restart_timeout = "120m"
-//  }
-
+/*
   provisioner "powershell" {
     elevated_user     = var.winrm_username
     elevated_password = var.winrm_password
@@ -162,14 +149,29 @@ build {
       "Start-Sleep -Seconds 60"
     ]
   }
-  #provisioner "windows-restart" {
-  #  restart_check_command = "echo restarted"
-  #  restart_timeout = "5m"
-  #}
+*/
+  provisioner "windows-update" {
+    pause_before    = "60s"
+    search_criteria = "IsInstalled=0"
+    filters = [
+      "exclude:$_.Title -like '*Defender*'",
+      "exclude:$_.Title -like '*VMware*'",
+      "exclude:$_.Title -like '*Preview*'",
+      "exclude:$_.InstallationBehavior.CanRequestUserInput",
+      "include:$true"
+    ]
+    update_limit = 25
+    restart_timeout = "60m"
+  }
+
+  provisioner "windows-restart" {
+    restart_check_command = "echo restarted"
+    restart_timeout = "5m"
+  }
+
   provisioner "powershell" {
     elevated_user     = var.winrm_username
     elevated_password = var.winrm_password
-    #inline = [ "Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe" ]
     inline = [ "Add-AppPackage -path \"https://cdn.winget.microsoft.com/cache/source.msix\""]
   }
 
