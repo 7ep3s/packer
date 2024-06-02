@@ -146,6 +146,7 @@ build {
     pause_before    = "30s"
     search_criteria = "IsInstalled=0"
     filters = [
+      "exclude:$_.Title -like '*Defender*'",
       "exclude:$_.Title -like '*VMware*'",
       "exclude:$_.Title -like '*Preview*'",
       "exclude:$_.InstallationBehavior.CanRequestUserInput",
