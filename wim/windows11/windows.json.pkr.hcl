@@ -16,10 +16,10 @@ packer {
       version = ">= 0.14.3"
       source  = "github.com/rgl/windows-update"
     }
-    wim = {
-      version = ">= 0.5.1"
-      source = "github.com/marmold/wim"
-    }
+    #wim = {
+    #  version = ">= 0.5.1"
+    #  source = "github.com/marmold/wim"
+    #}
   }
 }
 
