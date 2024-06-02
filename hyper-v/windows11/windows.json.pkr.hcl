@@ -154,9 +154,25 @@ build {
     restart_timeout = "120m"
   }
 
+  provisioner "powershell" {
+    elevated_user     = var.winrm_username
+    elevated_password = var.winrm_password
+    inline            = [
+      "Start-Sleep -Seconds 60"
+    ]
+  }
   provisioner "windows-restart" {
-    restart_check_command = "powershell -command \"& {Write-Output 'restarted.'}\""
-    restart_timeout       = "20m"
+    restart_check_command = "echo restarted"
+    restart_timeout = "10m"
+  }
+  provisioner "powershell" {
+    inline = [ "Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe" ]
+  }
+
+  provisioner "powershell" {
+    elevated_user     = var.winrm_username
+    elevated_password = var.winrm_password
+    scripts           = ["./setup/install-winget-apps.ps1"]
   }
 
   provisioner "powershell" {
