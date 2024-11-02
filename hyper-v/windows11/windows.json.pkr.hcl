@@ -141,7 +141,7 @@ source "hyperv-iso" "windows11" {
 
 build {
   sources = ["source.hyperv-iso.windows11"]
-/*
+
   provisioner "powershell" {
     elevated_user     = var.winrm_username
     elevated_password = var.winrm_password
@@ -149,7 +149,7 @@ build {
       "Start-Sleep -Seconds 60"
     ]
   }
-*/
+
   provisioner "windows-update" {
     pause_before    = "60s"
     search_criteria = "IsInstalled=0"
