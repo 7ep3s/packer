@@ -111,7 +111,7 @@ variable "guest_additions_mode" {
 
 source "hyperv-iso" "windows11" {
   boot_wait = "0s"
-  boot_command = ["a<enter><wait>"]
+  boot_command = ["a<wait>a<wait>a<wait>a<wait>a<wait>a<wait>a<wait>a<wait>a<wait>a<wait>a<wait>a<wait>a"]
   // VM specifications
   vm_name                          = var.vm_name
   cpus                             = var.vm_cpus
