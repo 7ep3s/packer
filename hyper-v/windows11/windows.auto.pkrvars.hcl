@@ -1,7 +1,7 @@
 // VM hardware specs
 vm_name         = "W11-packer"
 vm_cpus         = "4"
-vm_memory       = "4096"
+vm_memory       = "8192"
 vm_disk_size    = "65536"
 switch_name     = "VMSWITCH"
 dynamic_memory  = "true"
