@@ -11,7 +11,7 @@ $ProgressPreference = 'SilentlyContinue'
 
 # Variables
 $downloadfolder = "C:\temp\" # Packer location installed
-$win11_downloadfolder = "C:\Temp\packer-main\wim\windows11\"
+$win11_downloadfolder = "C:\Temp\packer-main\hyper-v\windows11\"
 $packer_config = "windows.json.pkr.hcl" #Packer config file
 $packer_variable = "windows.auto.pkrvars.hcl" # Packer variable file
 #$env:winrm_admin = "admin"
