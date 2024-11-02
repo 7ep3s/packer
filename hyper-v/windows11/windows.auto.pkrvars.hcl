@@ -2,7 +2,7 @@
 vm_name         = "W11-packer"
 vm_cpus         = "4"
 vm_memory       = "8192"
-vm_disk_size    = "65536"
+vm_disk_size    = "131072"
 switch_name     = "VMSWITCH"
 dynamic_memory  = "true"
 secure_boot     = "true"
