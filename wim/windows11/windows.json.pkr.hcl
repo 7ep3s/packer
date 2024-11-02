@@ -154,7 +154,7 @@ build {
     ]
   }
 
-/*
+
   provisioner "windows-update" {
     pause_before    = "60s"
     search_criteria = "IsInstalled=0"
@@ -191,7 +191,7 @@ build {
     elevated_password = var.winrm_password
     scripts           = ["./setup/disable-autolog.ps1"]
   }
-*/
+
   post-processor "wim" {
     compression = 2
   }
